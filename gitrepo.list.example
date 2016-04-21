@@ -1,0 +1,2 @@
+/go/lib/gin-startup import.moetang.info/go/lib/gin-startup git https://github.com/moetang-arch/gin-startup.git
+/go/tool/go-import-server import.moetang.info/go/tool/go-import-server git https://github.com/moetang-arch/go-import-server.git
