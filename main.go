@@ -24,7 +24,7 @@ func main() {
 		r.Use(gin.Recovery(), gin.Logger())
 
 		for _, v := range entries {
-			r.GET(v.Uri, v.GetAction)
+			RegisterAction(v, r)
 		}
 	})
 	g.Start()
