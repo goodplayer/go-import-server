@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"container/list"
+	"errors"
 	"io"
 	"net/http"
 	"os"
@@ -12,14 +13,21 @@ import (
 )
 
 type Entry struct {
-	Uri        string
-	ImportPath string
-	RepoType   string
-	RepoUrl    string
+	Uri          string
+	ImportPath   string
+	RepoType     string
+	RepoUrl      string
+	RepoVendor   string
+	RepoHomepage string
 }
 
 func (this *Entry) GetAction(c *gin.Context) {
-	c.String(http.StatusOK, GeneratePage(this))
+	switch this.RepoVendor {
+	case "github-http":
+		c.String(http.StatusOK, GeneratePageGithubHttp(this))
+	default:
+		c.String(http.StatusInternalServerError, "repo vendor unknown.")
+	}
 }
 
 func ReadEntries() ([]*Entry, error) {
@@ -63,5 +71,10 @@ func processLine(line string) (*Entry, error) {
 	entry.ImportPath = elements[1]
 	entry.RepoType = elements[2]
 	entry.RepoUrl = elements[3]
+	entry.RepoVendor = elements[4]
+	entry.RepoHomepage = elements[5]
+	if entry.RepoVendor != "github-http" { // currently only support "github-http"
+		return nil, errors.New("repo vendor invalid. line=" + line)
+	}
 	return entry, nil
 }

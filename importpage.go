@@ -6,11 +6,17 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func GeneratePage(entry *Entry) string {
+func GeneratePageGithubHttp(entry *Entry) string {
 	s := `
-	<html><head><meta name="go-import" content="%s %s %s"></head></html>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="go-import" content="%s %s %s">
+        <meta name "go-source" content="%s %s %s/tree/master{/dir} %s/tree/master{/dir}/{file}#L{line}">
+    </head>
+</html>
 	`
-	return fmt.Sprintf(s, entry.ImportPath, entry.RepoType, entry.RepoUrl)
+	return fmt.Sprintf(s, entry.ImportPath, entry.RepoType, entry.RepoUrl, entry.ImportPath, entry.RepoHomepage, entry.RepoHomepage, entry.RepoHomepage)
 }
 
 func RegisterAction(entry *Entry, r *gin.Engine) {
