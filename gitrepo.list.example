@@ -1,2 +1,8 @@
 /go/lib/gin-startup import.moetang.info/go/lib/gin-startup git https://github.com/moetang-arch/gin-startup.git github-http https://github.com/moetang-arch/gin-startup
 /go/tool/go-import-server import.moetang.info/go/tool/go-import-server git https://github.com/moetang-arch/go-import-server.git github-http https://github.com/moetang-arch/go-import-server
+
+
+/go/nekoq/security import.moetang.info/go/nekoq/security git https://github.com/meidoworks/nekoq-security.git github-http https://github.com/meidoworks/nekoq-security
+/go/nekoq/boostrap import.moetang.info/go/nekoq/boostrap git https://github.com/meidoworks/nekoq-bootstrap.git github-http https://github.com/meidoworks/nekoq-bootstrap
+
+

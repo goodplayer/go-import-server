@@ -51,7 +51,9 @@ func ReadEntries() ([]*Entry, error) {
 		if e != nil {
 			return nil, e
 		}
-		l.PushBack(en)
+		if en != nil {
+			l.PushBack(en)
+		}
 		data, _, err = r.ReadLine()
 	}
 
@@ -65,6 +67,13 @@ func ReadEntries() ([]*Entry, error) {
 }
 
 func processLine(line string) (*Entry, error) {
+	line = strings.TrimSpace(line)
+	if line == "" {
+		return nil, nil
+	}
+	if line[0] == '#' {
+		return nil, nil
+	}
 	elements := strings.Split(line, " ")
 	entry := new(Entry)
 	entry.Uri = elements[0]
