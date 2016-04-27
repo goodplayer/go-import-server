@@ -5,4 +5,4 @@
 /go/nekoq-boostrap import.moetang.info/go/nekoq-boostrap git https://github.com/meidoworks/nekoq-bootstrap.git github-http https://github.com/meidoworks/nekoq-bootstrap
 /go/nekoq-api import.moetang.info/go/nekoq-api git https://github.com/meidoworks/nekoq-api.git github-http https://github.com/meidoworks/nekoq-api
 /go/nekoq import.moetang.info/go/nekoq git https://github.com/meidoworks/nekoq.git github-http https://github.com/meidoworks/nekoq
-
+/go/nekoq-common import.moetang.info/go/nekoq-common git https://github.com/meidoworks/nekoq-common.git github-http https://github.com/meidoworks/nekoq-common
